@@ -6,6 +6,7 @@
 #include <ostream>
 
 typedef std::string string;
+typedef std::exception exception;
 
 class Form;
 
@@ -28,12 +29,12 @@ public:
     void decrementGrade();
     void signForm(Form& f);
 
-    class GradeTooHighException : public std::exception {
+    class GradeTooHighException : public exception {
     public:
         const char* what() const throw();
     };
 
-    class GradeTooLowException : public std::exception {
+    class GradeTooLowException : public exception {
     public:
         const char* what() const throw();
     };

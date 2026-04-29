@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <string>
 #include <exception>
@@ -10,19 +10,22 @@ typedef std::exception exception;
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 private:
     const string name;
     bool isSigned;
     const int signGrade;
     const int execGrade;
 
+protected:
+    virtual void performAction() const = 0;
+
 public:
-    Form();
-    Form(const string& name, int signGrade, int execGrade);
-    Form(const Form& other);
-    Form& operator=(const Form& other);
-    ~Form();
+    AForm();
+    AForm(const string& name, int signGrade, int execGrade);
+    AForm(const AForm& other);
+    AForm& operator=(const AForm& other);
+    virtual ~AForm();
 
     const string& getName() const;
     bool getIsSigned() const;
@@ -30,6 +33,7 @@ public:
     int getExecGrade() const;
 
     void beSigned(const Bureaucrat& b);
+    void execute(Bureaucrat const& executor) const;
 
     class GradeTooHighException : public exception {
     public:
@@ -40,8 +44,13 @@ public:
     public:
         const char* what() const throw();
     };
+
+    class FormNotSignedException : public exception {
+    public:
+        const char* what() const throw();
+    };
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif

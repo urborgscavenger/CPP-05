@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "CSharpStyle.hpp"
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(150) {}
@@ -38,12 +38,21 @@ void Bureaucrat::decrementGrade() {
     grade++;
 }
 
-void Bureaucrat::signForm(Form& f) {
+void Bureaucrat::signForm(AForm& f) {
     try {
         f.beSigned(*this);
         WriteLine(name + " signed " + f.getName());
     } catch (exception& e) {
         WriteLine(name + " couldn’t sign " + f.getName() + " because " + e.what());
+    }
+}
+
+void Bureaucrat::executeForm(AForm const& form) const {
+    try {
+        form.execute(*this);
+        WriteLine(name + " executed " + form.getName());
+    } catch (exception& e) {
+        WriteLine(name + " couldn’t execute " + form.getName() + " because " + e.what());
     }
 }
 

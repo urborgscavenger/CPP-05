@@ -9,7 +9,7 @@ int main() {
         ss << b1;
         WriteLine(ss.str());
         b1.incrementGrade(); 
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         std::stringstream ss;
         ss << "Exception: " << e.what();
         WriteLine(ss.str());
@@ -21,7 +21,7 @@ int main() {
         ss << b2;
         WriteLine(ss.str());
         b2.decrementGrade();
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         std::stringstream ss;
         ss << "Exception: " << e.what();
         WriteLine(ss.str());
@@ -29,7 +29,7 @@ int main() {
 
     try {
         Bureaucrat b3("Jeff3", 0);
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         std::stringstream ss;
         ss << "Exception: " << e.what();
         WriteLine(ss.str());
@@ -37,7 +37,7 @@ int main() {
 
     try {
         Bureaucrat b4("Jeff4", 151); 
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         std::stringstream ss;
         ss << "Exception: " << e.what();
         WriteLine(ss.str());

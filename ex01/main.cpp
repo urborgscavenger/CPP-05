@@ -10,7 +10,7 @@ int main() {
         ss << b1;
         WriteLine(ss.str());
         b1.incrementGrade();
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         WriteLine("Exception: " + string(e.what()));
     }
 
@@ -20,19 +20,19 @@ int main() {
         ss << b2;
         WriteLine(ss.str());
         b2.decrementGrade(); 
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         WriteLine("Exception: " + string(e.what()));
     }
 
     try {
         Bureaucrat b3("Jeff3", 0); 
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         WriteLine("Exception: " + string(e.what()));
     }
 
     try {
         Bureaucrat b4("Alice", 151);
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         WriteLine("Exception: " + string(e.what()));
     }
 
@@ -81,19 +81,19 @@ int main() {
         ssf2 << f2;
         WriteLine(ssf2.str());
 
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         WriteLine("Exception: " + string(e.what()));
     }
 
     try {
         Form f3("Invalid Form", 0, 25);
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         WriteLine("Exception: " + string(e.what()));
     }
 
     try {
         Form f4("Invalid Form2", 25, 151);
-    } catch (std::exception& e) {
+    } catch (exception& e) {
         WriteLine("Exception: " + string(e.what()));
     }
 
